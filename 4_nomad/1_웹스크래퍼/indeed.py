@@ -35,14 +35,15 @@ def extract_job(html):
 
 def extract_indeed_jobs(last_page):
     jobs =[]
-    # for page in range(last_page):
-    result = requests.get(f"{URL}&start={0*LIMIT}")
-    soup = BeautifulSoup(result.text, 'html.parser')
-    results = soup.find_all('div', {"class":"job_seen_beacon"})
-    spans =[]
-    for result in results:
-        job = extract_job(result)
-        jobs.append(job)
+    for page in range(last_page):
+        print(f"scrapping page {page}")
+        result = requests.get(f"{URL}&start={page*LIMIT}")
+        soup = BeautifulSoup(result.text, 'html.parser')
+        results = soup.find_all('div', {"class":"job_seen_beacon"})
+        spans =[]
+        for result in results:
+            job = extract_job(result)
+            jobs.append(job)
     return jobs
 
 
