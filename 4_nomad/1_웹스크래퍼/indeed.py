@@ -4,11 +4,11 @@ import requests
 INDEED_URL = "https://indeed.com/jobs?q=python&limit=50"
 
 def extract_indeed_pages():
-    indeed_result = requests.get(INDEED_URL)
+    result = requests.get(INDEED_URL)
 
-    indeed_soup = BeautifulSoup(indeed_result.text, 'html.parser')
+    soup = BeautifulSoup(result.text, 'html.parser')
 
-    pagination = indeed_soup.find("div", {"class":"pagination"})
+    pagination = soup.find("div", {"class":"pagination"})
 
     links = pagination.find_all('a')
 
@@ -17,3 +17,5 @@ def extract_indeed_pages():
         pages.append(int(link.string))
 
     max_page = pages[-1]
+
+    return max_page
