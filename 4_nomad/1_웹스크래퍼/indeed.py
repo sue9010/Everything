@@ -4,7 +4,7 @@ import requests
 LIMIT = 50
 URL = f"https://indeed.com/jobs?q=python&limit={LIMIT}"
 
-def extract_indeed_pages():
+def get_last_page():
     result = requests.get(URL)
     soup = BeautifulSoup(result.text, 'html.parser')
     try:
@@ -33,7 +33,7 @@ def extract_job(html):
     return {'title':final_title, 'company':company, 'location':location, 'link': f"https://www.indeed.com/viewjob?jk={apply_link}"}
 
 
-def extract_indeed_jobs(last_page):
+def extract_jobs(last_page):
     jobs =[]
     for page in range(last_page):
         print(f"scrapping page {page}")
@@ -46,4 +46,7 @@ def extract_indeed_jobs(last_page):
             jobs.append(job)
     return jobs
 
-
+def get_jobs():
+    last_page = get_last_page()
+    jobs = extract_jobs(last_page)
+    return jobs
