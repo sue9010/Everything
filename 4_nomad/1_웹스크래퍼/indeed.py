@@ -28,5 +28,16 @@ def extract_indeed_jobs(last_page):
     for result in results:
         title = result.find("h2", {"class":"jobTitle"}).find("a", {"class":"jcs-JobTitle"}).find("span")
         final_title = title['title']
-        print(final_title)
+        # print(final_title)
+        company = result.find("span", {"class":"companyName"})
+        company_anchor = company.find("a")
+        if company.find("a") is not None:
+            company =str(company_anchor.string)
+        else:
+            company = str(company.string)
+        company = company.strip()
+        print(company)
+
     return jobs
+
+
