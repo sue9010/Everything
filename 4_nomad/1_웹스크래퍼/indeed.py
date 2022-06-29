@@ -36,7 +36,7 @@ def extract_indeed_jobs(last_page):
         else:
             company = str(company.string)
         company = company.strip()
-        print(company)
+        print(final_title,company)
 
     return jobs
 
