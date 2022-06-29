@@ -28,7 +28,8 @@ def extract_job(html):
     else:
         company = str(company.string)
     company = company.strip()
-    return {'title':final_title, 'company':company}
+    location = html.find("div", {"class":"companyLocation"}).text
+    return {'title':final_title, 'company':company, 'location':location}
 
 
 def extract_indeed_jobs(last_page):
