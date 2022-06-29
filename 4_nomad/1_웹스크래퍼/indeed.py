@@ -29,7 +29,8 @@ def extract_job(html):
         company = str(company.string)
     company = company.strip()
     location = html.find("div", {"class":"companyLocation"}).text
-    return {'title':final_title, 'company':company, 'location':location}
+    apply_link = html.find("a", {"class":"jcs-JobTitle"})["data-jk"]
+    return {'title':final_title, 'company':company, 'location':location, 'link': f"https://www.indeed.com/viewjob?jk={apply_link}"}
 
 
 def extract_indeed_jobs(last_page):
