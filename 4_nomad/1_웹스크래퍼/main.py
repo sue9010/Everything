@@ -1,8 +1,8 @@
 from indeed import get_jobs as get_indeed_jobs
-from stackoverflow import get_jobs as get_stackoverflow_jobs
+from jobkorea import get_jobs as get_jobkorea_jobs
 
 indeed_jobs = get_indeed_jobs()
-stackoverflowjobs = get_stackoverflow_jobs()
+jobkoreajobs = get_jobkorea_jobs()
+jobs = indeed_jobs + jobkoreajobs
+print(jobs)
 
-# print(stackoverflowjobs)
-print(indeed_jobs)

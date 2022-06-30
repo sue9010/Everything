@@ -32,6 +32,7 @@ def extract_job(html):
 def extract_jobs(last_page):
     jobs = []
     for page in range(last_page):
+        print (f"Scrapping JobKorea: Page: {page}")
         result = requests.get(f"{URL}&page_No={page+1}")
         soup = BeautifulSoup(result.text, 'html.parser')
         results = soup.find_all("div", {"class": "post"})
