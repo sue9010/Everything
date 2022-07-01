@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML 문서</title>
+    <style>
+        .container{
+            display: flex;
+            width: 300px; height: 300px;
+            border: 2px solid black;
+            justify-content: space-between; 
+            /* 가로 방향에서의 배치 */
+            align-items: flex-end;
+            /* 세로 방향에서의 배치 */
+            flex-wrap: wrap;
+        }
+        .item{
+            width: 120px; height: 60px;
+            background-color: teal;
+            /* 상위 컨테이너보다 자식 컨테이너의 합이 더 클 경우 자식 컨테이너가 자신을 수축함 
+            flex-wrap을 이용하면 수축하지 않고 행을 넘김*/
+
+        }
+        .self {
+            align-self: flex-start;
+            /* 개별 요소에만 align을 지정 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1</div>
+        <div class="item self">2</div>
+        <div class="item">3</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* 
+
+window.document
+1.브라우저 객체 window의 document 속성은 창이 포함한 문서를 참조한다.
+즉, window.document은 현재 브라우저에 렌더링 되고 있는 문서를 의미하며,
+이 속성을 이용하면 해당 문서에 접근할 수 있다.
+좀 있어 보이게 표현하며?
+window.document는 페이지 콘텐츠, 즉 DOM에 대한 진입점 역할을 하는 프로그래밍 인터페이스이다!
+이를 이용하면 페이지의 정보를 얻거나 웹 요소를 생성 및 조작 할 수 있다.
+2. document는 문서(html, xml,svg등)에 대한 공통의 속성과 메소드를 제공한다.
+즉, 다양한 API(application programming interface)를 제공한다.
+
+document.querySelector
+document의 querySelector 메소드는 선택자를 인자로 전달받아,
+전달받은 선택자와 일치하는 문서 내 첫 번째 요소(element)를 반환한다.
+일치하는 요소가 없으면 '없다'라는 의미의 null 데이터를 반환한다.
+인자로 전달되는 선택자는 문자열 타입의 '유효한 CSS 선택자'를 의미한다.
+ex)
+document.querySelector("p")
+
+document.getElementByID
+document.getElementByID 메소드는 id를 인자로 전달받아,
+전달받은 선택자와 일치하는 문서 내 첫 번째 요소(element)를 반환한다.
+일치하는 요소가 없으면 '없다'라는 의미의 null 데이터를 반환한다.
+인자로 전달되는 선택자는 문자열 타입의 'id'를 의미한다.
+ex)
+document.getElementByID("text")
+
+-> 두 메소드는 모두 요소(element) 객체를 반환한다.
+
+textContent
+textContent 속성은 해당 노드가 포함하고 있는 텍스트 콘텐츠를 표현하는 속성이다.
+textContent를 통해 요소가 포함한 텍스트를 읽을 수도, 변경할 수도 있다.
+const p = document.querySelector("p") //p 요소를 반환받아 상수로 이름을 붙인다.
+console.log(p.textContent) //p 요소의 textContent 속성을 콘솔에 출력한다.
+p.textContent = "텍스트를 이걸로 바꿔줘!" // p요소의 textContent 값을 변경한다.
+
+
+
+*/
