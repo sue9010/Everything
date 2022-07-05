@@ -1,4 +1,3 @@
-from typing import final
 from bs4 import BeautifulSoup 
 import requests
 LIMIT = 50
