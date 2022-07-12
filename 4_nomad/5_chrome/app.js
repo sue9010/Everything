@@ -1,16 +1,16 @@
 const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
+const greeting = document.querySelector("#greeting");
 
-function onLoginSubmit(tomato) {
-  tomato.preventDefault();
-  // const username = loginInput.value;
-  console.log(tomato);
+const HIDDEN_CLASSNAME = "hidden";
 
-  // if(username===""){
-  //     alert("Please write your name");
-  // }else if(username.length>15) {
-  //     alert("Your name is too long")
-  // }
+function onLoginSubmit(event) {
+  event.preventDefault();
+  loginForm.classList.add(HIDDEN_CLASSNAME);
+  const username = loginInput.value;
+  // greeting.innerText = "Hello, " + username;
+  greeting.innerText = `Hello ${username}`;
+  greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);
